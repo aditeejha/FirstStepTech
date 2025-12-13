@@ -5,107 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FirstStepTech</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="style_HP.css">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style_homePage.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
     <header>
-        <div class="nav-container">
-
-            <!-- Logo -->
-            <a href="#" class="logo">FirstStep<span>Tech</span></a>
-
-            <!-- Mobile Toggle (Checkbox Hack) -->
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-            <!-- Hamburger Icon -->
-            <label for="menu-toggle" class="hamburger">
-                <span></span><span></span><span></span>
-            </label>
-
-            <!-- Navigation Links -->
-            <ul class="nav-links">
+        <nav> 
+            <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#popular_skills">Skills</a></li>
-                <li><a href="#roadmap">Roadmaps</a></li>
-                <li><a href="#intro">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Roadmaps</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-
-        </div>
+        </nav>
     </header>
 
-
-
-    <!-- HERO SECTION -->
-    <section class="hero" id="short_intro">
-        <div class="hero-content">
-            <h1>Your First Step In Tech Begins Here</h1>
-            <h3>A Beginner's roadmap for 25+ tech skills</h3>
-            <a href="#popular_skills" class="cta-button">Skills Page</a>
-        </div>
+    <section id="short_intro">
+        <h1>Your First Step In Tech Begins Here</h1>
+        <h3>A Beginner's roadmap for 25+ tech skills</h3>
+        <a href="#"><button>Skills Page</button></a>
     </section>
 
-
-
-    <!-- INTRO SECTION -->
-    <section class="intro-section" id="intro">
-        <p class="intro-highlight">Feeling confused about what skill to choose?</p>
-        <p class="intro-emphasis">Don't worry — your one-step solution is here!</p>
-        <p>A beginner's guide to 25+ tech fields, all in one place.</p>
+    <section id="intro">
+        <p>Feeling Confused about what skill to choose? Or where exactly to begin?</p>
+        <p>Don't worry, your one step solution to all your problems is here!</p>
+        <p>A beginner's guide to 25+ tech fields, all at one place!</p>
     </section>
 
-
-
-    <!-- POPULAR SKILLS SECTION -->
-    <section class="skills-section" id="popular_skills">
+    <section id="popular_skills">
         <h2>Some Popular Skills</h2>
-
-        <div class="skills-grid">
-            <button class="skill-btn">DSA</button>
-            <button class="skill-btn">WebDev</button>
-            <button class="skill-btn">AIML</button>
-            <button class="skill-btn">App Development</button>
-        </div>
+        <button>DSA</button>
+        <button>Web Dev</button>
+        <button>AI / ML</button>
+        <button>App Development</button>
     </section>
 
-
-
-    <!-- HOW IT WORKS SECTION -->
-    <section class="how-section" id="how_it_works">
+    <section id="how_it_works">
         <h3>How the Website Works?</h3>
-
-        <ul class="steps-list">
-            <li>
-                <div class="step-number">1</div>
-                <p class="step-text">Click on any skill you want to begin with.</p>
-            </li>
-            <li>
-                <div class="step-number">2</div>
-                <p class="step-text">You will be taken directly to the page of that skill.</p>
-            </li>
-            <li>
-                <div class="step-number">3</div>
-                <p class="step-text">If you don't know what skill to choose, we have a section for that too.</p>
-            </li>
-        </ul>
+        <ol>
+            <li>Click on any of the skills you want to begin with</li>
+            <li>You will directly be taken to the page of that skill</li>
+            <li>If you don't know what skill to choose, don't worry, we have a section for that as well</li>
+        </ol>
     </section>
 
-
-
-    <!-- ROADMAP DETAILS SECTION -->
-    <section class="roadmap-section" id="roadmap">
-        <p class="roadmap-intro">Each skill page includes:</p>
-
-        <ul class="roadmap-list">
+    <section id="roadmap">
+        <p>Each page consists of the following:</p>
+        <ul>
             <li>Scope and Potential</li>
             <li>Basic idea and where to begin</li>
             <li>Projects you can make</li>
@@ -113,50 +63,17 @@
         </ul>
     </section>
 
-
-
-    <!-- QUOTE SECTION -->
-    <section class="quote-section" id="quote">
-        <blockquote>
-            <p>"Build a project and then let it build your future"</p>
-        </blockquote>
+    <section id="quote">
+        <p>"Build a project and then let it build your future"</p>
     </section>
 
-
-
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="footer-content">
-
-            <div class="footer-brand">
-                <a class="logo" href="#">FirstStep<span>Tech</span></a>
-                <p>Your guide to learning tech.</p>
-            </div>
-
-            <ul class="footer-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#intro">About</a></li>
-                <li><a href="mailto:example@email.com">Contact</a></li>
-            </ul>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2025 FirstStepTech</p>
-        </div>
+    <footer>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </footer>
-
-
-
-    <!-- Optional JS for hamburger (not required but smoother) -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const hamburger = document.querySelector('.hamburger');
-
-        hamburger.addEventListener('click', () => {
-            menuToggle.checked = !menuToggle.checked;
-        });
-    </script>
 
 </body>
 </html>
