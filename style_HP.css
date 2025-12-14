@@ -328,3 +328,24 @@ footer ul li a {
 footer ul li a:hover {
     color: white;
 }
+#about-goal ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#about-goal li {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#about-goal li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
