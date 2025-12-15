@@ -26,7 +26,7 @@
 body {
     font-family: Inter, system-ui, sans-serif;
     color: var(--text-primary);
-    background-color: var(--bg-primary);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     line-height: 1.6;
     padding-top: 70px;
 }
@@ -42,10 +42,7 @@ header {
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     transition: box-shadow 0.3s ease;
-}
-
-header:hover {
-    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
 }
 
 nav ul {
@@ -99,25 +96,40 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+#short_intro::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, rgba(248, 250, 252, 0.3));
+    pointer-events: none;
 }
 
 #short_intro h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.2rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
 }
 
 #short_intro h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    margin-bottom: 40px;
-    opacity: 0;
+    margin-bottom: 48px;
+    opacity: 0.95;
+    letter-spacing: 0.01em;
     animation: fadeInUp 0.8s ease 0.2s forwards;
 }
 
 #short_intro button {
-    padding: 15px 40px;
+    padding: 16px 44px;
     border-radius: 50px;
     border: none;
     font-size: 1rem;
@@ -125,7 +137,7 @@ nav ul li a:hover {
     color: var(--primary-color);
     background: white;
     cursor: pointer;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     animation: fadeInUp 0.8s ease 0.4s forwards;
@@ -133,7 +145,7 @@ nav ul li a:hover {
 
 #short_intro button:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
 }
 
 #short_intro button:active {
@@ -154,16 +166,17 @@ nav ul li a:hover {
 /* ================= INTRO ================= */
 
 #intro {
-    padding: 100px 20px;
-    background: var(--bg-secondary);
+    padding: 120px 20px;
+    background: linear-gradient(to bottom, #f8fafc, #ffffff);
     text-align: center;
 }
 
 #intro p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--text-secondary);
     max-width: 700px;
     margin: 0 auto 20px;
+    line-height: 1.8;
     transition: color 0.3s ease;
 }
 
@@ -174,13 +187,27 @@ nav ul li a:hover {
 /* ================= POPULAR SKILLS (HOME) ================= */
 
 #popular_skills {
-    padding: 100px 20px;
+    padding: 120px 20px;
     text-align: center;
+    background: #ffffff;
 }
 
 #popular_skills h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+#popular_skills h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 24px auto 40px;
+    border-radius: 2px;
 }
 
 #popular_skills button {
@@ -204,7 +231,7 @@ nav ul li a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.08), transparent);
     transition: left 0.5s ease;
 }
 
@@ -226,14 +253,27 @@ nav ul li a:hover {
 /* ================= HOW IT WORKS ================= */
 
 #how_it_works {
-    padding: 100px 20px;
-    background: var(--bg-secondary);
+    padding: 120px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
 }
 
 #how_it_works h3 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+#how_it_works h3::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 24px auto 56px;
+    border-radius: 2px;
 }
 
 #how_it_works ol {
@@ -244,24 +284,45 @@ nav ul li a:hover {
 #how_it_works li {
     background: white;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 24px 28px;
     border-radius: 14px;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     border-left: 4px solid transparent;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 #how_it_works li:hover {
     transform: translateX(8px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
     border-left-color: var(--primary-color);
 }
 
 /* ================= ROADMAP ================= */
 
 #roadmap {
-    padding: 100px 20px;
+    padding: 120px 20px;
     text-align: center;
+    background: #f8fafc;
+}
+
+#roadmap h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+#roadmap h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 24px auto 56px;
+    border-radius: 2px;
 }
 
 #roadmap ul {
@@ -270,23 +331,23 @@ nav ul li a:hover {
     gap: 20px;
     list-style: none;
     max-width: 900px;
-    margin: 40px auto 0;
+    margin: 0 auto;
 }
 
 #roadmap li {
-    background: var(--bg-secondary);
-    padding: 25px;
+    background: white;
+    padding: 28px;
     border-radius: 14px;
     font-weight: 500;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
 }
 
 #roadmap li:hover {
-    background: white;
     border-color: var(--primary-light);
     transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
 }
 
 /* ================= QUOTE ================= */
@@ -295,6 +356,18 @@ nav ul li a:hover {
     padding: 120px 20px;
     background: var(--bg-gradient);
     text-align: center;
+    position: relative;
+}
+
+#quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(248, 250, 252, 0.2), transparent);
+    pointer-events: none;
 }
 
 #quote p {
@@ -302,6 +375,10 @@ nav ul li a:hover {
     font-style: italic;
     color: white;
     transition: transform 0.3s ease;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 #quote p:hover {
@@ -311,15 +388,34 @@ nav ul li a:hover {
 /* ================= SKILLS PAGE ================= */
 
 #skills_intro {
-    padding: 100px 20px 60px;
+    padding: 120px 20px 80px;
     text-align: center;
-    background: var(--bg-secondary);
+    background: linear-gradient(to bottom, #f8fafc, #ffffff);
+}
+
+#skills_intro h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+#skills_intro h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 28px auto 0;
+    border-radius: 2px;
 }
 
 #skills_list {
-    padding: 60px 20px 100px;
+    padding: 60px 20px 120px;
     max-width: 900px;
     margin: 0 auto;
+    background: #ffffff;
 }
 
 #skills_list ul {
@@ -333,7 +429,7 @@ nav ul li a:hover {
     background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    padding: 24px 28px;
+    padding: 28px 32px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     position: relative;
@@ -363,7 +459,7 @@ nav ul li a:hover {
 
 #skills_list li a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
     transition: color 0.3s ease;
@@ -378,16 +474,18 @@ nav ul li a:hover {
 #about-me {
     max-width: 900px;
     margin: 0 auto 100px;
-    padding: 40px 20px;
+    padding: 80px 20px;
     text-align: left;
 }
 
 #about-me h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--text-primary);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     position: relative;
-    padding-bottom: 12px;
+    padding-bottom: 20px;
 }
 
 #about-me h2::after {
@@ -395,22 +493,23 @@ nav ul li a:hover {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
-    height: 3px;
+    width: 80px;
+    height: 4px;
     background: var(--primary-color);
     transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
 #about-me h2:hover::after {
-    width: 120px;
+    width: 140px;
 }
 
 #about-me p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
     line-height: 1.8;
     max-width: 100%;
-    margin: 0 0 16px 0;
+    margin: 28px 0 16px 0;
     transition: color 0.3s ease;
 }
 
@@ -422,14 +521,27 @@ nav ul li a:hover {
 
 #skill-detail {
     max-width: 900px;
-    margin: 40px auto 100px;
+    margin: 60px auto 120px;
     padding: 0 20px;
 }
 
 #skill-detail h1 {
     text-align: center;
-    margin-bottom: 60px;
-    font-size: 3rem;
+    margin-bottom: 16px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+#skill-detail h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 28px auto 64px;
+    border-radius: 2px;
 }
 
 #what-is-dsa,
@@ -437,10 +549,10 @@ nav ul li a:hover {
 #dsa-roadmap,
 #dsa-resources {
     background: white;
-    padding: 40px;
-    margin-bottom: 30px;
+    padding: 44px;
+    margin-bottom: 32px;
     border-radius: 16px;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
@@ -449,7 +561,7 @@ nav ul li a:hover {
 #why-dsa:hover,
 #dsa-roadmap:hover,
 #dsa-resources:hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
     transform: translateY(-4px);
 }
 
@@ -458,18 +570,31 @@ nav ul li a:hover {
 #dsa-roadmap h2,
 #dsa-resources h2 {
     color: var(--primary-dark);
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--bg-secondary);
-    padding-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 16px;
     transition: border-color 0.3s ease;
 }
 
-#what-is-dsa:hover h2,
-#why-dsa:hover h2,
-#dsa-roadmap:hover h2,
-#dsa-resources:hover h2 {
-    border-bottom-color: var(--primary-light);
+#what-is-dsa h2::after,
+#why-dsa h2::after,
+#dsa-roadmap h2::after,
+#dsa-resources h2::after {
+    content: '';
+    display: block;
+    margin-top: 20px;
+}
+
+#what-is-dsa p,
+#why-dsa p,
+#dsa-roadmap p,
+#dsa-resources p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
 }
 
 #dsa-roadmap ol {
@@ -477,10 +602,12 @@ nav ul li a:hover {
 }
 
 #dsa-roadmap li {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     transition: all 0.3s ease;
     padding-left: 8px;
-    border-left: 2px solid transparent;
+    border-left: 3px solid transparent;
+    font-size: 1.08rem;
+    line-height: 1.7;
 }
 
 #dsa-roadmap li:hover {
@@ -494,14 +621,15 @@ nav ul li a:hover {
 footer {
     background: var(--text-primary);
     color: white;
-    padding: 40px 20px;
+    padding: 48px 20px;
+    border-top: 4px solid var(--primary-color);
 }
 
 footer ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 30px;
+    gap: 36px;
 }
 
 footer ul li a {
@@ -509,6 +637,7 @@ footer ul li a {
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
+    font-weight: 500;
 }
 
 footer ul li a::after {
@@ -537,11 +666,11 @@ footer ul li a:hover {
 }
 
 #about-goal li {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    margin-bottom: 12px;
-    padding-left: 20px;
+    margin-bottom: 16px;
+    padding-left: 28px;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -551,11 +680,12 @@ footer ul li a:hover {
     position: absolute;
     left: 0;
     color: var(--primary-color);
+    font-size: 1.4rem;
     transition: transform 0.3s ease;
 }
 
 #about-goal li:hover {
-    padding-left: 24px;
+    padding-left: 32px;
     color: var(--text-primary);
 }
 
