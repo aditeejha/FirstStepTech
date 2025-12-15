@@ -37,9 +37,15 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+
+header:hover {
+    box-shadow: var(--shadow-md);
 }
 
 nav ul {
@@ -50,11 +56,31 @@ nav ul {
     gap: 30px;
 }
 
+nav ul li {
+    position: relative;
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 nav ul li a {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -78,12 +104,16 @@ nav ul li a:hover {
 #short_intro h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 #short_intro h3 {
     font-size: 1.4rem;
     font-weight: 400;
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.2s forwards;
 }
 
 #short_intro button {
@@ -96,11 +126,29 @@ nav ul li a:hover {
     background: white;
     cursor: pointer;
     box-shadow: var(--shadow-lg);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
 }
 
 #short_intro button:hover {
     transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+#short_intro button:active {
+    transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ================= INTRO ================= */
@@ -116,6 +164,11 @@ nav ul li a:hover {
     color: var(--text-secondary);
     max-width: 700px;
     margin: 0 auto 20px;
+    transition: color 0.3s ease;
+}
+
+#intro p:hover {
+    color: var(--text-primary);
 }
 
 /* ================= POPULAR SKILLS (HOME) ================= */
@@ -139,7 +192,24 @@ nav ul li a:hover {
     font-weight: 600;
     cursor: pointer;
     color: var(--text-secondary);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#popular_skills button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+#popular_skills button:hover::before {
+    left: 100%;
 }
 
 #popular_skills button:hover {
@@ -147,6 +217,10 @@ nav ul li a:hover {
     color: var(--primary-color);
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
+}
+
+#popular_skills button:active {
+    transform: translateY(-2px);
 }
 
 /* ================= HOW IT WORKS ================= */
@@ -173,6 +247,14 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 14px;
     box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+#how_it_works li:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--primary-color);
 }
 
 /* ================= ROADMAP ================= */
@@ -196,6 +278,15 @@ nav ul li a:hover {
     padding: 25px;
     border-radius: 14px;
     font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+#roadmap li:hover {
+    background: white;
+    border-color: var(--primary-light);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
 }
 
 /* ================= QUOTE ================= */
@@ -210,6 +301,11 @@ nav ul li a:hover {
     font-size: 2rem;
     font-style: italic;
     color: white;
+    transition: transform 0.3s ease;
+}
+
+#quote p:hover {
+    transform: scale(1.02);
 }
 
 /* ================= SKILLS PAGE ================= */
@@ -240,6 +336,23 @@ nav ul li a:hover {
     padding: 24px 28px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#skills_list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary-color);
+    transition: height 0.3s ease;
+}
+
+#skills_list li:hover::before {
+    height: 100%;
 }
 
 #skills_list li:hover {
@@ -253,6 +366,7 @@ nav ul li a:hover {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 #skills_list li a:hover {
@@ -272,6 +386,23 @@ nav ul li a:hover {
     font-size: 2rem;
     color: var(--text-primary);
     margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+#about-me h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+#about-me h2:hover::after {
+    width: 120px;
 }
 
 #about-me p {
@@ -280,7 +411,11 @@ nav ul li a:hover {
     line-height: 1.8;
     max-width: 100%;
     margin: 0 0 16px 0;
+    transition: color 0.3s ease;
+}
 
+#about-me p:hover {
+    color: var(--text-primary);
 }
 
 /* ================= DSA PAGE ================= */
@@ -307,6 +442,15 @@ nav ul li a:hover {
     border-radius: 16px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+#what-is-dsa:hover,
+#why-dsa:hover,
+#dsa-roadmap:hover,
+#dsa-resources:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
 }
 
 #what-is-dsa h2,
@@ -318,6 +462,14 @@ nav ul li a:hover {
     font-size: 1.8rem;
     border-bottom: 2px solid var(--bg-secondary);
     padding-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#what-is-dsa:hover h2,
+#why-dsa:hover h2,
+#dsa-roadmap:hover h2,
+#dsa-resources:hover h2 {
+    border-bottom-color: var(--primary-light);
 }
 
 #dsa-roadmap ol {
@@ -326,6 +478,15 @@ nav ul li a:hover {
 
 #dsa-roadmap li {
     margin-bottom: 15px;
+    transition: all 0.3s ease;
+    padding-left: 8px;
+    border-left: 2px solid transparent;
+}
+
+#dsa-roadmap li:hover {
+    padding-left: 16px;
+    border-left-color: var(--primary-color);
+    color: var(--text-primary);
 }
 
 /* ================= FOOTER ================= */
@@ -346,12 +507,30 @@ footer ul {
 footer ul li a {
     color: var(--text-light);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+footer ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+footer ul li a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 footer ul li a:hover {
     color: white;
 }
+
 #about-goal ul {
     list-style: none;
     padding-left: 0;
@@ -364,6 +543,7 @@ footer ul li a:hover {
     margin-bottom: 12px;
     padding-left: 20px;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 #about-goal li::before {
@@ -371,5 +551,14 @@ footer ul li a:hover {
     position: absolute;
     left: 0;
     color: var(--primary-color);
+    transition: transform 0.3s ease;
 }
 
+#about-goal li:hover {
+    padding-left: 24px;
+    color: var(--text-primary);
+}
+
+#about-goal li:hover::before {
+    transform: scale(1.3);
+}
